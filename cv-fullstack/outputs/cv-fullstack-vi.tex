@@ -1,0 +1,155 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.5in,top=0.35in,bottom=0.3in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\usepackage{xcolor}
+\usepackage[skip=2.5pt]{parskip}
+\usepackage{ragged2e}     % \RaggedRight with hyphenation for bullets
+\usepackage{hyperref}
+
+% Colors
+\definecolor{accentcolor}{RGB}{0,100,100}
+\definecolor{stackgray}{RGB}{95,95,95}
+
+% Hyperref setup + PDF metadata
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdfborder={0 0 0},
+    pdftitle={Trần Văn Còn -- Backend Developer},
+    pdfauthor={Trần Văn Còn}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom section formatting
+\renewcommand{\section}[1]{%
+  \par\vspace{3.5pt}%
+  \noindent{\large\bfseries\color{accentcolor}#1}\par
+  \nointerlineskip\vspace{-1pt}%
+  \noindent{\color{accentcolor}\rule{\linewidth}{0.8pt}}\par
+  \nointerlineskip\vspace{2pt}%
+}
+
+% Compact list
+\renewenvironment{itemize}
+  {\begin{list}{{\color{accentcolor}\small\raisebox{0.1em}{$\bullet$}}}%
+     {\setlength{\leftmargin}{1.1em}%
+      \setlength{\itemindent}{0pt}%
+      \setlength{\itemsep}{1pt}%
+      \setlength{\parsep}{0pt}%
+      \setlength{\topsep}{1pt}%
+      \setlength{\listparindent}{0pt}}%
+      \RaggedRight}
+  {\end{list}}
+
+% Custom commands
+\newcommand{\cvheader}[7]{%
+  \noindent
+  \begin{minipage}[b]{0.58\linewidth}
+    \RaggedRight
+    {\huge\bfseries #1}\\[6pt]
+    {\Large\bfseries\color{accentcolor}#2}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[b]{0.40\linewidth}
+    \RaggedLeft\footnotesize
+    #3\\
+    \href{mailto:#4}{#4}\\
+    #5\\
+    \href{https://#6}{#6}\\
+    \href{https://#7}{#7}%
+  \end{minipage}
+  \par\vspace{2pt}
+}
+
+\newcommand{\jobheader}[3]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3}
+}
+
+\newcommand{\techstack}[1]{
+  \par{\small\color{stackgray}\textit{Tech stack: #1}}
+}
+
+\newcommand{\educationheader}[4]{
+  \textbf{#1} \hfill #2 \\
+  #3 \hfill \textit{#4}
+}
+
+% Document
+\begin{document}
+
+% Header
+\cvheader{Trần Văn Còn}{BACKEND DEVELOPER}{+84 327 781 160}{tranvanconkg@gmail.com}{TP. Hồ Chí Minh, Việt Nam}{github.com/tranconcoder}{portfolio.trancondev.site}
+
+% Summary
+\section{Tóm tắt}
+Kỹ sư Backend (Node.js/TypeScript) với kinh nghiệm thực tế trên hệ thống serverless, chịu tải cao (high-concurrency) trên AWS. Thế mạnh về NestJS/Express, Redis, hàng đợi (SQS, BullMQ), kiến trúc DDD và Hexagonal; đảm nhiệm toàn diện từ thiết kế hệ thống, CI/CD đến kiểm thử. Cựu Tech Lead -- Top 30 UniVentures 2025.
+
+% Technical Skills
+\section{Kỹ năng chuyên môn}
+
+\textbf{Backend:} NestJS, Express.js, Node.js, TypeScript, WebSocket \\
+\textbf{Cơ sở dữ liệu \& Caching:} PostgreSQL, MySQL, MongoDB, Redis, Drizzle ORM \\
+\textbf{Hàng đợi \& Tác vụ nền:} AWS SQS, BullMQ, Webhooks, MQTT \\
+\textbf{Điện toán đám mây \& DevOps:} AWS (Lambda, S3, SQS, CloudFront, EC2), Docker, GitLab CI/CD \\
+\textbf{Kiến trúc \& Thiết kế:} Hexagonal, DDD; Singleton, Strategy, Factory, Observer \\
+\textbf{Tích hợp AI:} LLM tool-calling (MCP), Hybrid RAG (BM25 + pgvector) \\
+\textbf{Công cụ \& Hệ điều hành:} Alibaba KMS, MinIO, LocalStack, Arch Linux, NixOS \\
+\textbf{Frontend:} ReactJS, Redux, NextJS, Sass, TailwindCSS
+
+% Experience
+\section{Kinh nghiệm làm việc}
+
+\jobheader{Nexon Dev Vina}{02/2026 -- Hiện tại}{Backend -- Junior}
+\techstack{NestJS, TypeScript, AWS Lambda, S3, SQS, CloudFront, MySQL, DDD, Hexagonal Architecture}
+\begin{itemize}
+  \item Thiết kế và phát triển các API cốt lõi cho Admin CMS và nền tảng web phục vụ các tựa game lớn của Nexon; làm việc trực tiếp với đội ngũ Trụ sở chính (HQ) đưa phiên bản V1 lên Production.
+  \item Tái thiết kế pipeline build static-site sang mô hình xử lý song song qua hàng đợi (Lambda + SQS + S3), giảm 80\% thời gian build; tái cấu trúc module cũ theo DDD/Hexagonal Architecture.
+  \item Tham gia chuyển đổi nền tảng từ kiến trúc đơn vùng sang đa vùng (multi-region), hỗ trợ đa ngôn ngữ (i18n) nhằm tối ưu độ trễ truy cập toàn cầu.
+  \item Tham gia toàn diện vào chu kỳ triển khai xuyên suốt các môi trường Dev, Stage, Pre và Live.
+\end{itemize}
+
+\jobheader{DXDLabs}{08/2025 -- 02/2026}{Backend -- Fresher}
+\techstack{Express.js, TypeScript, Redis, PostgreSQL, Alibaba KMS, PayPal, BullMQ, Docker Compose, MinIO}
+\begin{itemize}
+  \item Xây dựng hệ thống thanh toán cốt lõi (PayPal) và động cơ ký số (Alibaba KMS); tối ưu hóa luồng ký tải cao bằng cơ chế Redis cache và hàng đợi nền BullMQ.
+  \item Thiết lập pipeline CI/CD với Docker Compose và phát triển bộ unit test từ đầu, đạt tỷ lệ bao phủ kiểm thử (code coverage) 90\%.
+\end{itemize}
+
+% Projects
+\section{Dự án cá nhân}
+
+\jobheader{UniVentures 2025 -- Stockie: Hệ thống giả lập giao dịch chứng khoán}{10/2025 -- 01/2026}{Trưởng nhóm kỹ thuật (Tech Lead)}
+\techstack{Express.js, Python, Redis, VNStock, Docker Compose, PM2, AWS EC2, LLM, MCP}
+\begin{itemize}
+  \item Xây dựng nền tảng giả lập giao dịch: backend Express.js/Redis, service Python đồng bộ dữ liệu thời gian thực từ chứng khoán Việt Nam (VNStock), cơ chế khớp lệnh và phân quyền RBAC.
+  \item Dẫn dắt kỹ thuật đội ngũ liên trường (RMIT, UIT) -- phân chia công việc, tài liệu hóa API, review mã nguồn -- thiết lập CI/CD tự động lên AWS EC2. Demo: \href{https://univen-2025.trancondev.site}{univen-2025.trancondev.site}
+\end{itemize}
+
+\jobheader{Smart Garage -- Hệ thống định vị phương tiện AIoT (Khóa luận tốt nghiệp)}{2025 -- 2026}{Lập trình viên độc lập (Solo Developer)}
+\techstack{NestJS, MQTT, Redis, PostgreSQL (pgvector), SSE, Drizzle ORM, Docker, ESP32/UWB firmware}
+\begin{itemize}
+  \item Xây dựng backend định vị trong nhà theo thời gian thực: tiếp nhận dữ liệu cảm biến UWB qua MQTT, giải thuật trilateration với bộ lọc One-Euro, truyền luồng SSE qua Redis đến client.
+  \item Phát triển trợ lý AI với Hybrid RAG (BM25 + pgvector) và LLM tool-calling (MCP), đạt độ chính xác 100\% trên bộ kiểm thử 101 câu hỏi chuẩn.
+\end{itemize}
+
+% Education
+\section{Học vấn}
+
+\educationheader{Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE)}{2022 -- 2026}{Chuyên ngành: Kỹ thuật IoT -- Internet vạn vật}{GPA: 3.7/4.0}
+
+% Honors & Awards
+\section{Giải thưởng \& Thành tựu}
+
+\begin{itemize}
+  \item \textbf{Top 30 Chung cuộc (Top 2\% / 1.500+) \& Thuyết trình tại Demo Day} -- UniVentures 2025 (BLOCK71, Temasek, Google, IBM, NIC).
+  \item \textbf{Top 2 Chung cuộc (Bảng AI)} -- Cardano SEA Hackathon 2026 (kiến trúc backend, tích hợp LLM/MCP).
+  \item \textbf{Giải Tư} -- Cuộc thi Khoa học Kỹ thuật cấp Quốc gia (ViSEF), lĩnh vực Phần mềm hệ thống.
+\end{itemize}
+
+\end{document}
