@@ -1,13 +1,13 @@
 \documentclass[10pt,a4paper]{article}
 
 % Packages (kept to what's available in this texlive-medium: no enumitem/titlesec/fontawesome5)
-\usepackage[margin=0.5in,top=0.35in,bottom=0.3in]{geometry}
+\usepackage[margin=0.5in,top=0.3in,bottom=0.25in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{charter}      % Bitstream Charter -- compact, highly readable CV font
 \usepackage{microtype}    % better spacing/justification
 \usepackage{xcolor}
-\usepackage[skip=2.5pt]{parskip}
+\usepackage[skip=2.0pt]{parskip}
 \usepackage{ragged2e}     % \RaggedRight with hyphenation for bullets
 \usepackage{hyperref}
 
@@ -53,21 +53,22 @@
 % Custom commands
 % Header: big name + role on the LEFT, contact lines stacked top-RIGHT
 % (mirrors the original CV layout). Bottom-aligned minipages.
-\newcommand{\cvheader}[7]{%
+\newcommand{\cvheader}[8]{%
   \noindent
-  \begin{minipage}[b]{0.58\linewidth}
+  \begin{minipage}[b]{0.56\linewidth}
     \RaggedRight
     {\huge\bfseries #1}\\[6pt]
     {\Large\bfseries\color{accentcolor}\textls[120]{#2}}%
   \end{minipage}%
   \hfill
-  \begin{minipage}[b]{0.40\linewidth}
+  \begin{minipage}[b]{0.42\linewidth}
     \RaggedLeft\footnotesize
     #3\\
     \href{mailto:#4}{#4}\\
     #5\\
     \href{https://#6}{#6}\\
-    \href{https://#7}{#7}%
+    \href{https://#7}{#7}\\
+    \href{https://#8}{#8}%
   \end{minipage}
   \par\vspace{2pt}
 }
@@ -90,7 +91,7 @@
 \begin{document}
 
 % Header
-\cvheader{Tran Van Con}{BACKEND DEVELOPER}{+84 327 781 160}{tranvanconkg@gmail.com}{Ho Chi Minh, Viet Nam}{github.com/tranconcoder}{portfolio.trancondev.site}
+\cvheader{Tran Van Con}{BACKEND DEVELOPER}{+84 327 781 160}{tranvanconkg@gmail.com}{Ho Chi Minh, Viet Nam}{github.com/tranconcoder}{gitlab.com/tranconcoder}{portfolio.trancondev.site}
 
 % Summary
 \section{Summary}

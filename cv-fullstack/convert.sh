@@ -63,7 +63,7 @@ compile_file() {
     [[ -f "$pdf_file" ]] || to_pdf
     echo ":: Rendering PDF -> PNG"
     pdftoppm -png -r 150 "$pdf_file" "$dir/$base"
-    for f in "$dir/$base"-*.png; do echo "   -> $f"; done
+    for f in "$dir/$base"-[0-9]*.png; do [[ -f "$f" ]] && echo "   -> $f"; done
   }
 
   to_docx() {
