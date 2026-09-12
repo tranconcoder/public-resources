@@ -1,0 +1,162 @@
+%% English CV — Vo Ngoc Kha Ai. Built on the cv-fullstack template (one column, 1 page).
+%% Pure English, so this keeps the template's original Charter font and compiles
+%% with either engine:  ./build.sh cv-khaai-en.tex   (xelatex)
+%% Vietnamese twin: cv-khaai.tex (needs xelatex + Liberation Serif for diacritics).
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.55in,top=0.4in,bottom=0.35in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[skip=3pt]{parskip}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+
+% Colors
+\definecolor{accentcolor}{HTML}{0E7C6B}
+\definecolor{stackgray}{RGB}{95,95,95}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdfborder={0 0 0},
+    pdftitle={Vo Ngoc Kha Ai -- QA/QC \& R\&D},
+    pdfauthor={Vo Ngoc Kha Ai}
+}
+
+\pagestyle{empty}
+
+% Degree sign: this file uses charter/inputenc, so a literal ° would break under xelatex
+\newcommand{\dg}{\ensuremath{^\circ}}
+
+% Section formatting defined by hand (no titlesec)
+% Stretchable gaps (plus ...fil) at section, entry and bullet level: leftover page
+% height is spread evenly across the page rather than pooling in a few big gaps.
+\newif\ifcvfirstsection\cvfirstsectiontrue
+\renewcommand{\section}[1]{%
+  \ifcvfirstsection\cvfirstsectionfalse\else\vspace{0pt plus 2.2fil}\fi
+  \par\vspace{5pt}%
+  \noindent{\large\bfseries\color{accentcolor}#1}\par
+  \nointerlineskip\vspace{-1pt}%
+  \noindent{\color{accentcolor}\rule{\linewidth}{0.8pt}}\par
+  \nointerlineskip\vspace{2.5pt}%
+}
+
+% Compact, ragged-right bullets
+\renewenvironment{itemize}
+  {\begin{list}{{\color{accentcolor}\small\raisebox{0.1em}{$\bullet$}}}%
+     {\setlength{\leftmargin}{1.1em}%
+      \setlength{\itemindent}{0pt}%
+      \setlength{\itemsep}{1pt plus 0.6fil}%
+      \setlength{\parsep}{0pt}%
+      \setlength{\topsep}{1pt plus 0.6fil}%
+      \setlength{\listparindent}{0pt}}%
+      \RaggedRight}
+  {\end{list}}
+
+% Header: name + role on the left, contact stacked on the right
+\newcommand{\cvheader}[5]{%
+  \noindent
+  \begin{minipage}[b]{0.58\linewidth}
+    \RaggedRight
+    {\huge\bfseries #1}\\[6pt]
+    {\Large\bfseries\color{accentcolor}\textls[120]{#2}}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[b]{0.40\linewidth}
+    \RaggedLeft\footnotesize
+    #3\\
+    \href{mailto:#4}{#4}\\
+    #5%
+  \end{minipage}
+  \par\vspace{2pt}
+}
+
+\newcommand{\jobheader}[3]{
+  \vspace{0pt plus 1fil}
+  \textbf{#1} \hfill #2 \\
+  \textit{#3}
+}
+
+\newcommand{\techstack}[1]{
+  \par{\small\color{stackgray}\textit{Instruments \& standards: #1}}
+}
+
+\newcommand{\educationheader}[4]{
+  \textbf{#1} \hfill #2 \\
+  #3 \hfill \textit{#4}
+}
+
+\begin{document}
+% Pin the content to the full page height so the "plus ...fil" gaps above stretch
+% to absorb the slack, spread evenly instead of pooling in one place.
+\vbox to \textheight\bgroup
+
+% Header
+\cvheader{Vo Ngoc Kha Ai}{QA/QC \& R\&D --- CHEMISTRY}{(+84) 822 909 029}{khaai.iuh@gmail.com}{Ho Chi Minh City, Vietnam}
+
+% Profile
+\section{Profile}
+{\fontsize{10.5}{13}\selectfont
+Final-year Chemical Engineering Technology student at Industrial University of Ho Chi Minh City (IUH), focused on organic chemistry. Interned at Son Hai Van Paint Co., Ltd., operating coating film test instruments and running IQC --- IPQC --- FQC quality control across 400--500 kg industrial batches under an ISO 9001:2015 system. Currently completing a thesis on leather-like composite materials from water hyacinth. Seeking a QA/QC or R\&D position in paint, coatings, materials or industrial chemicals.\par}
+
+% Technical Skills
+\section{Technical Skills}
+
+\textbf{Instruments operated:} Stormer viscometer (KU), Pfund Cryptometer, Hegman fineness gauge, density cup, gloss meter, adhesion tester \\
+\textbf{Exposure to:} Salt spray chamber (ISO 7253), QUV weathering, Elcometer mandrel bend, impact tester \\
+\textbf{Quality systems:} ISO 9001:2015, IQC/IPQC/FQC workflow, SOPs, 5S, navigating TCVN --- ASTM --- ISO \\
+\textbf{Test standards:} TCVN 2099/ISO 1519, TCVN 2100-2/ISO 6272-2, ISO 4628-2, ASTM D1654 \\
+\textbf{Materials:} Alkyd, acrylic, epoxy, polyurethane and polyester resins; solvent systems; pigments and extenders; natural-fibre composites \\
+\textbf{Health, safety \& environment:} MSDS/SDS, PPE, fire safety, hazardous waste segregation and handling \\
+\textbf{Software:} AutoCAD Plant 3D, Excel, Word
+
+% Experience
+\section{Experience}
+
+\jobheader{Son Hai Van Paint Co., Ltd. --- Technical Department}{April 2026 --- June 2026}{QA/QC Intern --- Supervisor: Le Quoc Thoi, Technical Manager}
+\techstack{Stormer (KU), Pfund Cryptometer, Hegman gauge, density cup, gloss meter 20\dg/60\dg/85\dg, adhesion tester; ISO 9001:2015}
+\begin{itemize}
+  \item Ran IQC --- IPQC --- FQC sampling and inspection on 400--500 kg industrial batches, operating the full coating film test bench and judging pass/fail against technical tolerances (density 1.25\,$\pm$\,0.02\,g/cm$^3$, alkyd primer \textasciitilde70 KU) at a controlled 25\,$\pm$\,0.5\,\dg C; recorded results on standardised ISO 9001:2015 forms.
+  \item Prepared and rated specimens for durability testing (QUV, mandrel bend, impact, 1000 h salt spray), matched colour against customer standards, and learned root-cause tracing on out-of-spec batches --- resin shock, pigment flocculation, off-target viscosity --- to recover a batch rather than scrap it.
+\end{itemize}
+
+% Research & Projects
+\section{Research \& Projects}
+
+\jobheader{Graduation Thesis --- Leather-like composites from water hyacinth}{2026}{Principal investigator --- Supervisor: Dr. Pham Thi Hong Phuong}
+\techstack{Natural-fibre composites, water hyacinth, agricultural by-products, garment waste paper}
+\begin{itemize}
+  \item Investigating the process factors governing leather-like material made from water hyacinth, agricultural by-products and waste paper from garment embroidery.
+  \item Aimed at valorising waste streams into an environmentally friendlier substitute for synthetic leather.
+\end{itemize}
+
+\jobheader{Industrial Internship Report --- Paint Manufacturing Process}{2026}{Team of 8 students --- Supervisor: Le Nhat Thong, M.Sc.}
+\begin{itemize}
+  \item Documented the complete paint manufacturing process --- raw materials, block flow diagram, equipment, common failures and corrective measures --- and compiled 12 quality tests with their principles, apparatus, governing standards and step-by-step procedures.
+\end{itemize}
+
+% Education
+\section{Education}
+
+\educationheader{Industrial University of Ho Chi Minh City (IUH)}{2022 --- 2026}{B.Eng. in Chemical Engineering Technology --- Faculty of Chemical Engineering}{GPA: 2.9/4.0}
+\begin{itemize}
+  \item Certificate in Basic Information Technology Application (IUH).
+\end{itemize}
+
+% Awards
+\section{Awards}
+
+\begin{itemize}
+  \item \textbf{Second and Third Prize} --- Provincial Science \& Engineering Fair (social media category), high school.
+  \item \textbf{National Consolation Prize} --- \textit{Safe Traffic for a Smiling Tomorrow} competition.
+  \item \textbf{Provincial Consolation Prize} --- Reading Culture competition.
+  \item \textbf{Second Prize} --- Provincial Chess Championship, high school.
+\end{itemize}
+
+\egroup
+
+\end{document}

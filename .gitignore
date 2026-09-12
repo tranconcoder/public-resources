@@ -1,0 +1,17 @@
+# LaTeX build artifacts and logs
+*.aux
+*.log
+*.out
+*.build.log
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Office temporary/lock files
+.~lock.*
+~$*
+
+# OS artifacts
+.DS_Store
+Thumbs.db

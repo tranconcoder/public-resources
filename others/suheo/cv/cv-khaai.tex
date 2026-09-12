@@ -1,0 +1,159 @@
+%% CV Võ Ngọc Khả Ái — dựng theo template cv-fullstack (một cột, gọn, 1 trang).
+%% Biên dịch bằng XeLaTeX (tiếng Việt cần fontspec):
+%%   xelatex -output-directory=build cv-khaai.tex
+%% hoặc: ./build.sh cv-khaai.tex
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.55in,top=0.4in,bottom=0.35in]{geometry}
+\usepackage{fontspec}     % Liberation Serif thay Charter: Charter của TeX thiếu dấu tiếng Việt
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[skip=3pt]{parskip}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+
+\setmainfont{Liberation Serif}[Ligatures=TeX]
+
+% Màu nhấn
+\definecolor{accentcolor}{HTML}{0E7C6B}
+\definecolor{stackgray}{RGB}{95,95,95}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdfborder={0 0 0},
+    pdftitle={Vo Ngoc Kha Ai -- QA/QC \& R\&D},
+    pdfauthor={Vo Ngoc Kha Ai}
+}
+
+\pagestyle{empty}
+
+% Định dạng section thủ công (không dùng titlesec)
+% Khoảng cách co giãn (plus) ở cả section lẫn từng mục: phần giấy dư được rải
+% đều khắp trang thay vì dồn vào vài khe lớn giữa các section.
+\newif\ifcvfirstsection\cvfirstsectiontrue
+\renewcommand{\section}[1]{%
+  \ifcvfirstsection\cvfirstsectionfalse\else\vspace{0pt plus 2.2fil}\fi
+  \par\vspace{5pt}%
+  \noindent{\large\bfseries\color{accentcolor}#1}\par
+  \nointerlineskip\vspace{-1pt}%
+  \noindent{\color{accentcolor}\rule{\linewidth}{0.8pt}}\par
+  \nointerlineskip\vspace{2.5pt}%
+}
+
+% Danh sách gạch đầu dòng gọn, canh trái để tránh giãn chữ
+\renewenvironment{itemize}
+  {\begin{list}{{\color{accentcolor}\small\raisebox{0.1em}{$\bullet$}}}%
+     {\setlength{\leftmargin}{1.1em}%
+      \setlength{\itemindent}{0pt}%
+      \setlength{\itemsep}{1pt plus 0.6fil}%
+      \setlength{\parsep}{0pt}%
+      \setlength{\topsep}{1pt plus 0.6fil}%
+      \setlength{\listparindent}{0pt}}%
+      \RaggedRight}
+  {\end{list}}
+
+% Tiêu đề: tên + vị trí bên trái, thông tin liên hệ xếp bên phải
+\newcommand{\cvheader}[5]{%
+  \noindent
+  \begin{minipage}[b]{0.58\linewidth}
+    \RaggedRight
+    {\huge\bfseries #1}\\[6pt]
+    {\Large\bfseries\color{accentcolor}\textls[120]{#2}}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[b]{0.40\linewidth}
+    \RaggedLeft\footnotesize
+    #3\\
+    \href{mailto:#4}{#4}\\
+    #5%
+  \end{minipage}
+  \par\vspace{2pt}
+}
+
+\newcommand{\jobheader}[3]{
+  \vspace{0pt plus 1fil}
+  \textbf{#1} \hfill #2 \\
+  \textit{#3}
+}
+
+\newcommand{\techstack}[1]{
+  \par{\small\color{stackgray}\textit{Thiết bị \& tiêu chuẩn: #1}}
+}
+
+\newcommand{\educationheader}[4]{
+  \textbf{#1} \hfill #2 \\
+  #3 \hfill \textit{#4}
+}
+
+\begin{document}
+% Ép toàn bộ nội dung vào đúng chiều cao trang: các khoảng "plus ...fil" ở trên
+% giãn ra để lấp phần dư, rải đều thay vì dồn một chỗ.
+\vbox to \textheight\bgroup
+
+% Tiêu đề
+\cvheader{Võ Ngọc Khả Ái}{QA/QC \& R\&D --- HÓA HỌC}{0822 909 029}{khaai.iuh@gmail.com}{TP. Hồ Chí Minh, Việt Nam}
+
+% Giới thiệu
+\section{Giới thiệu}
+{\fontsize{10.5}{13}\selectfont
+Sinh viên năm cuối ngành Công nghệ Kỹ thuật Hóa học (IUH), định hướng chuyên sâu hóa hữu cơ. Đã thực tập tại Công ty TNHH Sơn Hải Vân, trực tiếp vận hành thiết bị đo cơ lý tính màng sơn và thực hiện kiểm soát chất lượng ba chặng IQC --- IPQC --- FQC trên dây chuyền mẻ 400--500 kg theo hệ thống ISO 9001:2015. Đang thực hiện khóa luận về vật liệu composite giả da từ lục bình. Mong muốn làm nhân viên QA/QC hoặc R\&D tại doanh nghiệp sơn, chất phủ, vật liệu hoặc hóa chất công nghiệp.\par}
+
+% Kỹ năng chuyên môn
+\section{Kỹ năng chuyên môn}
+
+\textbf{Thiết bị đã vận hành:} Máy đo độ nhớt Stormer (KU), Pfund Cryptometer, thước độ mịn Hegman, cốc đo tỷ trọng, máy đo độ bóng, thiết bị đo độ bám dính \\
+\textbf{Thiết bị đã tiếp cận:} Buồng phun sương muối (ISO 7253), lão hóa nhanh QUV, thử uốn trục hình trụ Elcometer, thử va đập \\
+\textbf{Hệ thống chất lượng:} ISO 9001:2015, quy trình IQC/IPQC/FQC, SOP, 5S, tra cứu TCVN --- ASTM --- ISO \\
+\textbf{Tiêu chuẩn đánh giá:} TCVN 2099/ISO 1519, TCVN 2100-2/ISO 6272-2, ISO 4628-2, ASTM D1654 \\
+\textbf{Vật liệu:} Nhựa alkyd, acrylic, epoxy, polyurethane, polyester; hệ dung môi; bột màu --- bột độn; composite từ sợi tự nhiên \\
+\textbf{An toàn --- môi trường:} MSDS/SDS, PPE, PCCC, phân loại và xử lý chất thải nguy hại \\
+\textbf{Phần mềm:} AutoCAD Plant 3D, Excel, Word
+
+% Kinh nghiệm
+\section{Kinh nghiệm thực tế}
+
+\jobheader{Công ty TNHH Sơn Hải Vân --- Bộ phận Kỹ thuật}{20/04/2026 --- 20/06/2026}{Thực tập sinh QA/QC --- CBHD: Lê Quốc Thời, Trưởng phòng Kỹ thuật}
+\techstack{Stormer (KU), Pfund Cryptometer, Hegman, đo tỷ trọng, đo độ bóng 20°/60°/85°, đo độ bám dính; ISO 9001:2015}
+\begin{itemize}
+  \item Thực hiện lấy mẫu và kiểm tra ba chặng IQC --- IPQC --- FQC trên dây chuyền mẻ công nghiệp 400--500 kg; trực tiếp vận hành toàn bộ thiết bị đo cơ lý tính màng sơn, kết luận đạt/không đạt theo dung sai kỹ thuật (tỷ trọng 1,25\,±\,0,02\,g/cm³, sơn lót alkyd \textasciitilde70 KU) ở 25\,±\,0,5\,°C; ghi kết quả vào biểu mẫu chuẩn hóa ISO 9001:2015.
+  \item Chuẩn bị và đánh giá mẫu thử độ bền dài hạn (QUV, uốn trục hình trụ, va đập, phun sương muối 1000 giờ), so màu đối chiếu chuẩn khách hàng, và nắm cách truy nguyên nhân gốc rễ khi mẻ sai chỉ tiêu --- sốc nhựa, keo tụ bột màu, lệch độ nhớt --- để thu hồi mẻ thay vì loại bỏ.
+\end{itemize}
+
+% Nghiên cứu & Dự án
+\section{Nghiên cứu \& Dự án}
+
+\jobheader{Khóa luận tốt nghiệp --- Vật liệu composite giả da từ lục bình}{2026}{Thực hiện chính --- GVHD: TS. Phạm Thị Hồng Phượng}
+\techstack{Composite sợi tự nhiên, lục bình, phụ phẩm nông nghiệp, giấy thải ngành may}
+\begin{itemize}
+  \item Khảo sát các yếu tố ảnh hưởng đến quy trình chế tạo vật liệu giả da từ lục bình, phụ phẩm nông nghiệp và giấy thải của công đoạn thêu ngành may.
+  \item Hướng tới tận dụng phế phụ phẩm, giảm chất thải --- vật liệu thân thiện môi trường thay thế da tổng hợp.
+\end{itemize}
+
+\jobheader{Báo cáo thực tập tốt nghiệp --- Quy trình sản xuất sơn}{2026}{Thành viên nhóm 8 sinh viên --- GVHD: ThS. Lê Nhất Thống}
+\begin{itemize}
+  \item Mô tả trọn quy trình sản xuất sơn --- nguyên liệu, sơ đồ khối, thiết bị, sự cố thường gặp và biện pháp khắc phục --- đồng thời hệ thống hóa 12 phép thử chất lượng kèm nguyên lý, cấu tạo thiết bị, tiêu chuẩn áp dụng và quy trình thao tác từng bước.
+\end{itemize}
+
+% Học vấn
+\section{Học vấn}
+
+\educationheader{Trường Đại học Công nghiệp TP.HCM (IUH)}{2022 --- 2026}{Kỹ sư Công nghệ Kỹ thuật Hóa học --- Khoa Công nghệ Hóa học}{GPA: 2,9/4.0}
+\begin{itemize}
+  \item Chứng chỉ Ứng dụng công nghệ thông tin cơ bản (IUH).
+\end{itemize}
+
+% Giải thưởng
+\section{Giải thưởng}
+
+\begin{itemize}
+  \item \textbf{Giải Nhì \& Giải Ba} --- Khoa học Kỹ thuật cấp tỉnh (lĩnh vực mạng xã hội), bậc THPT.
+  \item \textbf{Giải Khuyến khích quốc gia} --- cuộc thi \textit{An toàn giao thông cho nụ cười ngày mai}.
+  \item \textbf{Giải Khuyến khích cấp tỉnh} --- cuộc thi Văn hóa đọc.
+  \item \textbf{Giải Nhì Cờ vua cấp tỉnh}, bậc THPT.
+\end{itemize}
+
+\egroup
+
+\end{document}
