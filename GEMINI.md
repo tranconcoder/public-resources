@@ -139,5 +139,17 @@ Chạy từ thư mục `others/suheo/cv/`:
    * Với `self/cv-fullstack/`: Chạy `./convert.sh all` sau khi sửa mã nguồn `.tex`.
    * Với `others/suheo/cv/`: Chạy `./build.sh <file.tex>` sau khi sửa mã nguồn `.tex`.
    * Không commit các file phụ trợ của LaTeX (`.aux`, `.log`, `.build.log`) hay lock file vào Git.
-5. **Lưu trữ Kế hoạch & Báo cáo vào `plans/`:** Mọi kế hoạch triển khai khi dùng lệnh `/plan` (Implementation Plan), tài liệu thiết kế hoặc báo cáo hoàn thành (Walkthrough) bắt buộc phải được lưu (hoặc sao chép) vào thư mục `plans/` của repository (ví dụ: `plans/<ten-ke-hoach>.md`, `plans/walkthrough.md`) để duy trì lịch sử các quyết định kỹ thuật và kiến trúc của repository.
+5. **Lưu trữ Kế hoạch & Báo cáo vào `plans/` theo quy chuẩn đặt tên:**
+   Mọi kế hoạch triển khai khi dùng lệnh `/plan` (Implementation Plan), tài liệu thiết kế hoặc báo cáo hoàn thành (Walkthrough) bắt buộc phải được lưu (hoặc sao chép) vào thư mục `plans/` của repository để duy trì lịch sử các quyết định kỹ thuật và kiến trúc của repository.
+   * **Quy ước đặt tên file (bắt buộc):** Tên file plan bắt buộc phải thể hiện rõ 3 thành phần: **thời gian**, **đối tượng phục vụ (cho ai)**, và **nội dung/mục đích thực hiện (làm gì)**:
+     `YYYY-MM-DD_<doi-tuong>_<noi-dung-thuc-hien>.md`
+   * **Chi tiết các thành phần:**
+     * `YYYY-MM-DD`: Ngày lập plan theo định dạng ISO (ví dụ: `2026-09-12`).
+     * `<doi-tuong>`: Đối tượng hoặc phạm vi của plan (`self`, `suheo`, `repo`, ...).
+     * `<noi-dung-thuc-hien>`: Hành động hoặc mục đích ngắn gọn bằng tiếng Việt không dấu ngăn cách bởi dấu gạch ngang (ví dụ: `them-cv-nganh-hoa`, `tai-cau-truc-self-others`, `walkthrough-...`).
+   * **Ví dụ mẫu:**
+     * `plans/2026-09-12_suheo_them-cv-nganh-hoa.md`
+     * `plans/2026-09-12_repo_tai-cau-truc-self-others.md`
+     * `plans/2026-09-12_repo_walkthrough-tai-cau-truc-va-cv-suheo.md`
+
 
