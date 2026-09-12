@@ -9,13 +9,14 @@ Tài liệu này cung cấp bối cảnh tổng quan về repository `public-res
 * **Chủ sở hữu:** Trần Văn Còn (`tvconss` / `tranconcoder` | `tranvanconkg@gmail.com`).
 * **Mục đích:** Kho lưu trữ các tài nguyên công khai cá nhân, bao gồm CV chuyên nghiệp (Backend Developer), báo cáo thực tập, slide thuyết trình và các tài nguyên liên quan của tác giả và các nhân sự liên quan.
 
-### Cấu trúc phân vùng chính (`self/` & `others/`):
+### Cấu trúc phân vùng chính (`self/`, `others/` & `plans/`):
 * **`self/`**: Tài nguyên cá nhân của tác giả (Trần Văn Còn).
   * `self/cv-fullstack/`: Mã nguồn LaTeX của CV Backend Developer, kịch bản build đa định dạng và các sản phẩm đầu ra (PDF, PNG, DOCX).
 * **`others/`**: Tài nguyên của những người khác ("mấy người kia").
   * `others/suheo/`: Tài nguyên của Võ Ngọc Khả Ái (Su Hẹo):
     * `others/suheo/cv/`: Mã nguồn LaTeX của CV Kỹ sư Công nghệ Kỹ thuật Hóa học / QA/QC & R&D, kịch bản build và sản phẩm PDF/PNG.
     * `others/suheo/report/`: Tài liệu báo cáo thực tập tại công ty Sơn Hải Vân (slide PPTX, kịch bản thuyết trình, ghi chú).
+* **`plans/`**: Nơi lưu trữ toàn bộ các kế hoạch thực thi (`/plan`), tài liệu thiết kế kỹ thuật và các báo cáo walkthrough của AI Agent.
 
 ---
 
@@ -138,3 +139,5 @@ Chạy từ thư mục `others/suheo/cv/`:
    * Với `self/cv-fullstack/`: Chạy `./convert.sh all` sau khi sửa mã nguồn `.tex`.
    * Với `others/suheo/cv/`: Chạy `./build.sh <file.tex>` sau khi sửa mã nguồn `.tex`.
    * Không commit các file phụ trợ của LaTeX (`.aux`, `.log`, `.build.log`) hay lock file vào Git.
+5. **Lưu trữ Kế hoạch & Báo cáo vào `plans/`:** Mọi kế hoạch triển khai khi dùng lệnh `/plan` (Implementation Plan), tài liệu thiết kế hoặc báo cáo hoàn thành (Walkthrough) bắt buộc phải được lưu (hoặc sao chép) vào thư mục `plans/` của repository (ví dụ: `plans/<ten-ke-hoach>.md`, `plans/walkthrough.md`) để duy trì lịch sử các quyết định kỹ thuật và kiến trúc của repository.
+
